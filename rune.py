@@ -10,7 +10,7 @@ def help():
   print("  formats : text | tab | list | csv | json | xml | html")
   print("  options : full / all / upper / rot13")
   print()
-  print("More info at https://runx.fr")
+  print("(c)2022 Stef Code - More info at https://runx.fr")
 
 runes = [
     ["Fehu"     ,"Prospérité" ,"Richesse"]
