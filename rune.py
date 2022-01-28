@@ -9,7 +9,8 @@ def help():
   print("  actions : get [nb] | random [nb = 3]")
   print("  formats : text | tab | list | csv | json | xml | html")
   print("  options : full / all / upper / rot13")
-
+  print()
+  print("More info at https://runx.fr")
 
 runes = [
     ["Fehu"     ,"Prospérité" ,"Richesse"]
