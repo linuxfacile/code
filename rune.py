@@ -5,11 +5,12 @@ import random
 import codecs
 
 def help():
+  global defnb
   print()
   print("rune diplays runes in differents formats")
   print("")
   print("parameters :")
-  print("  actions : get [nb] | random [nb = 3]")
+  print(f"  actions : get [nb] | random [nb = {defnb}]")
   print("  formats : text | line | tab | list | csv | json | xml | html")
   print("  options : full / all / upper / rot13")
   print()
@@ -32,7 +33,7 @@ runes = [
 ]
 
 maxnb = 24 # Maximum number of results
-defnb = 3  # Default number of results
+defnb = 5  # Default number of results
 
 (action, format) = [""] * 2
 (all, full, sort, upper, rot13) = [False] * 5
