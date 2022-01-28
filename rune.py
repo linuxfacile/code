@@ -33,7 +33,6 @@ runes = [
 
 maxnb = 24
 defnb = 3
-
 action = ""
 format = ""
 all = False
