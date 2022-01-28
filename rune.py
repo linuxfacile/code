@@ -1,15 +1,8 @@
 #!/usr/bin/python3
 
-# Rune Sampler
-
 import sys
 import random
 import codecs
-
-runes = ["Fehu", "Uruz", "Thurisaz", "Ansuz", "Raidho", "Kenaz"
-  , "Gebo", "Wunjo", "Hagalaz", "Naudhiz", "Isa", "Jera"
-  , "Eihwaz", "Perthro", "Algiz", "Sowilo", "Tiwaz", "Berkano"
-  , "Ehwaz", "Mannaz", "Laguz", "Ingwaz", "Dagaz", "Othala"]
 
 runes = [
     ["Fehu"     ,"Prospérité" ,"Richesse"]
