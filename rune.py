@@ -4,6 +4,13 @@ import sys
 import random
 import codecs
 
+def help():
+  print("Parameters :")
+  print("  actions : get [nb] | random [nb = 3]")
+  print("  formats : text | tab | list | csv | json | xml | html")
+  print("  options : full / all / upper / rot13")
+
+
 runes = [
     ["Fehu"     ,"Prospérité" ,"Richesse"]
   , ["Uruz"     ,"Force"      ,"Santé"]
@@ -104,10 +111,7 @@ elif action == "get":
     ids.append(random.randint(1,len(runes)))
 
 if action == "help":
-  print("Parameters :")
-  print("action : get [nb], random [nb = 3]")
-  print("formats : text, tab, list, csv, json, xml, html")
-  print("options : full, upper")
+  help()
 else:
   if sort:
     ids.sort()
