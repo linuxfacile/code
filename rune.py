@@ -10,7 +10,7 @@ def help():
   print("")
   print("parameters :")
   print("  actions : get [nb] | random [nb = 3]")
-  print("  formats : text | tab | list | csv | json | xml | html")
+  print("  formats : text | line | tab | list | csv | json | xml | html")
   print("  options : full / all / upper / rot13")
   print()
   print("made with Python3 - 2022 Stef Code - More info at https://runx.fr")
@@ -31,22 +31,18 @@ runes = [
   , ["Dagaz"    ,"Lumière"    ,"Savoir"]      , ["Othala"   ,"Héritage"   ,"Patrimoine"]
 ]
 
-maxnb = 24
-defnb = 3
-action = ""
-format = ""
-all = False
-full = False
-sort = False
-upper = False
-rot13 = False
+maxnb = 24 # Maximum number of results
+defnb = 3  # Default number of results
+
+(action, format) = [""] * 2
+(all, full, sort, upper, rot13) = [False] * 5
 
 for arg in sys.argv[1:]:
   if (not action):
     if arg in ("random", "get", "help"):
       action = arg
   if (not format):
-    if arg in ("text", "tab", "csv", "list", "json", "xml", "html"):
+    if arg in ("text", "line", "tab", "csv", "list", "json", "xml", "html"):
       format = arg
   if arg == "all":
     all = True
@@ -106,6 +102,7 @@ elif action == "get":
 if action == "help":
   help()
 else:
+  # Begin of runes
   if sort:
     ids.sort()
   if (format in ["list"]):
@@ -118,6 +115,7 @@ else:
   elif (format in ["html"]):
     print("<table>")
 
+  # Loop for runes
   for i in range(len(ids)):
     rune = runes[ids[i]-1][0]
     prim = runes[ids[i]-1][1]
@@ -136,6 +134,14 @@ else:
         print(rune, prim, sec)
       else:
         print(rune)
+
+    if format == "line":
+      if i > 0:
+        print(" ", end="")
+      if full:
+        print(rune, prim, sec, end="")
+      else:
+        print(rune, end="")
 
     elif format == "tab":
       if (i > 0):
@@ -187,7 +193,8 @@ else:
         print(f"    <td>{sec}</td>")
       print(f"  </tr>")
 
-  if (format in ["tab"]):
+  # End of runes
+  if (format in ["line", "tab"]):
     print()
   if (format in ["list"]):
     print(")")
