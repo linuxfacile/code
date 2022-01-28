@@ -36,6 +36,7 @@ defnb = 3
 
 action = ""
 format = ""
+all = False
 full = False
 sort = False
 upper = False
@@ -48,6 +49,8 @@ for arg in sys.argv[1:]:
   if (not format):
     if arg in ("text", "tab", "csv", "list", "json", "xml", "html"):
       format = arg
+  if arg == "all":
+    all = True
   if arg == "full":
     full = True
   elif arg == "sort":
@@ -67,6 +70,8 @@ if not format:
 ids = []
 if action == "random":
   nb = 0
+  if all:
+    nb = maxnb
   for arg in sys.argv[1:]:
     if (not nb):
       try:
@@ -84,14 +89,18 @@ if action == "random":
   random.shuffle(ids)
   ids = ids[:nb]
 elif action == "get":
-  for arg in sys.argv[1:]:
-    if (len(ids) < maxnb):
-      try:
-        id = int(arg)
-        if id in range(1,len(runes)+1) and id not in ids:
-          ids.append(id)
-      except:
-        pass
+  if all:
+    for i in range(maxnb):
+      ids.append(i+1)
+  else:
+    for arg in sys.argv[1:]:
+      if (len(ids) < maxnb):
+        try:
+          id = int(arg)
+          if id in range(1,len(runes)+1) and id not in ids:
+            ids.append(id)
+        except:
+          pass
   if not ids:
     ids.append(random.randint(1,len(runes)))
 
