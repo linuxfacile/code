@@ -33,7 +33,7 @@ runes = [
 ]
 
 maxnb = 24 # Maximum number of results
-defnb = 5  # Default number of results
+defnb = 3  # Default number of results
 
 (action, format) = [""] * 2
 (all, full, sort, upper, rot13) = [False] * 5
